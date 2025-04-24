@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/main
 import { Request, Response } from 'express';
 import { cassandraClient } from '../config/db';
 
@@ -65,5 +68,9 @@ export const addInventory = async (req: Request, res: Response) => {
         res.status(500).json({ error: 'Internal server error' });
       }
 
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> refs/remotes/origin/main

@@ -53,4 +53,8 @@ app.use("/api/inventory", inventoryRoutes);
 app.use("/api/noti", notiRoutes);
 
 
+<<<<<<< HEAD
 export default app;
+=======
+export default app;
+>>>>>>> refs/remotes/origin/main
