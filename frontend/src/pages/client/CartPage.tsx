@@ -38,7 +38,7 @@ const CartPage = () => {
           <li key={item._id} className="flex items-center justify-between p-4 border rounded-lg shadow-md">
             {/* Product Image */}
             <img
-              src={`http://localhost:5001/${item.image}`}
+              src={`http://localhost:5000/${item.image}`}
               alt={item.name}
               className="w-16 h-16 object-cover rounded-md"
             />

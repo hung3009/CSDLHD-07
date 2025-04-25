@@ -45,7 +45,7 @@ const [newStock, setNewStock] = useState('');
     if (!window.confirm("Are you sure you want to delete this product?")) return;
 
     try {
-      await axios.delete(`http://localhost:5001/api/product/delete/${id}`);
+      await axios.delete(`http://localhost:5000/api/product/delete/${id}`);
       setProducts(products.filter((product) => product.product_id !== id));
     } catch (error) {
       console.error("Error deleting product:", error);
@@ -122,7 +122,7 @@ const [newStock, setNewStock] = useState('');
                 <td className="py-2 px-4 border">{product.name}</td>
                 <td className="py-2 px-4 border flex space-x-2 justify-center">
                   {product.images.slice(0, 3).map((img: string, i: number) => (
-                    <img key={i} src={`http://localhost:5001/${img}`} alt={`Product ${i}`} className="w-12 h-12 object-cover rounded" />
+                    <img key={i} src={`http://localhost:5000/${img}`} alt={`Product ${i}`} className="w-12 h-12 object-cover rounded" />
                   ))}
                 </td>
                 <td className="py-2 px-4 border">{product.description}</td>

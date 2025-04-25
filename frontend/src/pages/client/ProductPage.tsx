@@ -21,7 +21,7 @@ const ProductPage = () => {
     try {
         setLoading(true)
       const response = await axiosInstance.get(
-        `http://localhost:5001/api/product/list?page=${pageNumber}&limit=${limit}`
+        `http://localhost:5000/api/product/list?page=${pageNumber}&limit=${limit}`
       );
       setProducts(response.data.products);
       setTotalPages(Math.ceil(response.data.total / limit));
@@ -41,7 +41,7 @@ const ProductPage = () => {
           <div key={product.product_id} className="bg-white shadow-md rounded-lg p-4">
             <Link to={`/product/${product.product_id}`}>
               <img
-                src={`http://localhost:5001/${product.images?.[0]}`} 
+                src={`http://localhost:5000/${product.images?.[0]}`} 
                 alt={product.name}
                 className="w-full h-48 object-cover rounded-lg"
               />

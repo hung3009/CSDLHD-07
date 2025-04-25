@@ -20,7 +20,7 @@ const CheckoutPage = () => {
   
 //   const cartItems = [
 //     { id: 1, name: "Product 1", price: 200000, quantity: 2, image: "/images/product1.jpg" },
-//     { id: 2, name: "Product 2", price: 150010, quantity: 1, image: "/images/product2.jpg" },
+//     { id: 2, name: "Product 2", price: 150000, quantity: 1, image: "/images/product2.jpg" },
 //   ];
 
   const validateForm = () => {
@@ -124,7 +124,7 @@ const CheckoutPage = () => {
             <h3 className="text-lg font-semibold mb-2">Order Summary</h3>
             {cartItems.map((item) => (
               <div key={item._id} className="flex items-center border-b pb-3 mb-3">
-                <img src={`http://localhost:5001/${item.image}`} alt={item.name} className="w-16 h-16 rounded-md object-cover" />
+                <img src={`http://localhost:5000/${item.image}`} alt={item.name} className="w-16 h-16 rounded-md object-cover" />
                 <div className="ml-4 flex-1">
                   <h4 className="text-lg font-semibold">{item.name}</h4>
                   <p className="text-gray-500">Qty: {item.quantity}</p>

@@ -60,7 +60,7 @@ const AddProduct = () => {
       data.append("images", file); // Must match `upload.array("images")` on backend
     });
     
-    // await sleep(15001);
+    // await sleep(15000);
     const response = await axiosInstance.post("/product/add", data
       ,{headers: { "Content-Type": "multipart/form-data" }}
     );

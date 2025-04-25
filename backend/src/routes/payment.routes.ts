@@ -147,7 +147,7 @@ const now = new Date();
 
   const vnpExpireDate = formatDateToVnpCreateDate(gmt7Time);
 
-  const url = "http://localhost:5001/api/vnpay-return";
+  const url = "http://localhost:5000/api/vnpay-return";
   const vnpIpAddr =
   req.headers['x-forwarded-for'] ||
   req.connection.remoteAddress ||
