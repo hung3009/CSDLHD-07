@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # MySQL Service
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"  # Allow no password
+      MYSQL_DATABASE: ecommerce
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql/init:/docker-entrypoint-initdb.d  # Mount thư mục init
+
+  # MongoDB Service
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  # Cassandra Service
+  cassandra:
+    image: cassandra
+    container_name: cassandra
+    restart: always
+    ports:
+      - "9042:9042"
+    environment:
+      - CASSANDRA_CLUSTER_NAME=ecommerce_cluster
+      - CASSANDRA_KEYSPACE=ecommerce_keyspace
+    volumes:
+      - ./backend/cassandra-init.cql:/docker-entrypoint-initdb.d/init.cql
+
+volumes:
+  mysql_data:
+  mongo_data:
+  cassandra_data:

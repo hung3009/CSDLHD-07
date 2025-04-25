@@ -12,18 +12,13 @@ export const connectMongoDB = async () => {
   try {
     await mongoose.connect(mongoURI, {
       family: 4,
-<<<<<<< HEAD
     });
-=======
-  });
->>>>>>> refs/remotes/origin/main
     console.log("✅ MongoDB Connected");
   } catch (error) {
     console.error("❌ MongoDB Connection Error:", error);
   }
 };
 
-<<<<<<< HEAD
 // Temporary Cassandra client (no keyspace)
 const tempCassandraClient = new CassandraClient({
   contactPoints: [cassandraContactPoint],
@@ -31,16 +26,12 @@ const tempCassandraClient = new CassandraClient({
 });
 
 // Main Cassandra client (uses keyspace after creation)
-=======
-// Cassandra Connection
->>>>>>> refs/remotes/origin/main
 export const cassandraClient = new CassandraClient({
   contactPoints: [cassandraContactPoint],
   localDataCenter: "datacenter1",
   keyspace: cassandraKeyspace,
 });
 
-<<<<<<< HEAD
 // Ensure Cassandra keyspace exists
 const ensureCassandraKeyspace = async () => {
   try {
@@ -134,14 +125,11 @@ const ensureCassandraKeyspace = async () => {
   }
 };
 
-=======
->>>>>>> refs/remotes/origin/main
 // MySQL Connection
 export const sequelize = new Sequelize(mysqlURI, {
   dialect: "mysql",
 });
 
-<<<<<<< HEAD
 // Connect all databases
 export const connectDatabases = async () => {
   await connectMongoDB();
@@ -150,11 +138,3 @@ export const connectDatabases = async () => {
   await sequelize.authenticate();
   console.log("✅ MySQL & Cassandra Connected");
 };
-=======
-export const connectDatabases = async () => {
-  await connectMongoDB();
-  await cassandraClient.connect();
-  await sequelize.authenticate();
-  console.log("✅ MySQL & Cassandra Connected");
-};
->>>>>>> refs/remotes/origin/main

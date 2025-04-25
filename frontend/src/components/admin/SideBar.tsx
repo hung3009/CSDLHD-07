@@ -6,6 +6,7 @@ const Sidebar = () => {
   const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({
     products: false,
     orders: false,
+    inventory: false,
   });
 
   const toggleMenu = (menu: string) => {
@@ -63,7 +64,7 @@ const Sidebar = () => {
         <div>
           <button
             className="w-full flex justify-between items-center px-4 py-2 hover:bg-gray-800 rounded"
-            onClick={() => toggleMenu("orders")}
+            onClick={() => toggleMenu("inventory")}
           >
             <span className="flex items-center gap-2">
               <ShoppingCart className="w-5 h-5" />
@@ -75,7 +76,7 @@ const Sidebar = () => {
               }`}
             />
           </button>
-          {openMenus.orders && (
+          {openMenus.inventory && (
             <div className="ml-6 mt-2 space-y-1">
               <Link
                 to="/admin/orders"
@@ -85,6 +86,36 @@ const Sidebar = () => {
               >
                 <List className="w-4 h-4 inline-block mr-2" />
                 Manage Orders
+              </Link>
+            </div>
+          )}
+        </div>
+        {/* inventory  */}
+        <div>
+          <button
+            className="w-full flex justify-between items-center px-4 py-2 hover:bg-gray-800 rounded"
+            onClick={() => toggleMenu("orders")}
+          >
+            <span className="flex items-center gap-2">
+              <ShoppingCart className="w-5 h-5" />
+              Inventory
+            </span>
+            <ChevronDown
+              className={`w-5 h-5 transition-transform ${
+                openMenus.orders ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+          {openMenus.orders && (
+            <div className="ml-6 mt-2 space-y-1">
+              <Link
+                to="/admin/inventory"
+                className={`block px-4 py-2 rounded hover:bg-gray-700 ${
+                  location.pathname === "/admin/inventory" ? "bg-gray-700" : ""
+                }`}
+              >
+                <List className="w-4 h-4 inline-block mr-2" />
+                Manage inventory
               </Link>
             </div>
           )}

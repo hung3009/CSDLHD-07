@@ -73,7 +73,7 @@ const ProductDetailPage = () => {
      <div className="w-full md:w-1/3 flex justify-center">
   {product?.images?.length ? (
     <img
-      src={`http://localhost:5000/${product.images[0]}`}
+      src={`http://localhost:5001/${product.images[0]}`}
       alt={product?.name || "Product Image"}
       className="w-64 h-64 object-cover rounded-lg shadow-md"
     />
